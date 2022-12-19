@@ -1,4 +1,3 @@
-import { NotFoundException } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { NewRecipeInput } from './dto/new-recipe.input';
 import { RecipesArgs } from './dto/recipes.args';
@@ -6,7 +5,7 @@ import { Recipe } from '../domain/models/recipe.model';
 import { RecipeAddUsecase } from '../usecases/add/recipe.add.usecase';
 import { RecipeFindOneByIdUsecase } from '../usecases/findonebyid/recipe.findonebyid.usecase';
 import { RecipeFindAllUsecase } from '../usecases/findall/recipe.findall.usecase';
-import { RecipeDeleteUsecase } from '../usecases/delete/recipe.findall.usecase';
+import { RecipeDeleteUsecase } from '../usecases/delete/recipe.delete.usecase';
 
 @Resolver(of => Recipe)
 export class RecipesResolver {

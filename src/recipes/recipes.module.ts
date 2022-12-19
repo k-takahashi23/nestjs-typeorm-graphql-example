@@ -3,7 +3,7 @@ import { DateScalar } from '../common/scalars/date.scalar';
 import { RecipesResolver } from './api/recipes.resolver';
 import { RecipesRepository } from './infrastructure/recipes.repository';
 import { RecipeAddUsecase } from './usecases/add/recipe.add.usecase';
-import { RecipeDeleteUsecase } from './usecases/delete/recipe.findall.usecase';
+import { RecipeDeleteUsecase } from './usecases/delete/recipe.delete.usecase';
 import { RecipeFindAllUsecase } from './usecases/findall/recipe.findall.usecase';
 import { RecipeFindOneByIdUsecase } from './usecases/findonebyid/recipe.findonebyid.usecase';
 

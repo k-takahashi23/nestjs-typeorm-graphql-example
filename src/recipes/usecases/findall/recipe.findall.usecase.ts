@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { Args } from '@nestjs/graphql';
 import { RecipesArgs } from 'src/recipes/api/dto/recipes.args';
 import { Recipe } from '../../domain/models/recipe.model';
