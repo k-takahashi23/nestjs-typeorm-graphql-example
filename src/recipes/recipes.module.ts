@@ -5,16 +5,22 @@ import { RecipesRepository } from './infrastructure/recipes.repository';
 import { RecipeAddUsecase } from './usecases/add/recipe.add.usecase';
 import { RecipeDeleteUsecase } from './usecases/delete/recipe.delete.usecase';
 import { RecipeFindAllUsecase } from './usecases/findall/recipe.findall.usecase';
-import { RecipeFindOneByIdUsecase } from './usecases/findonebyid/recipe.findonebyid.usecase';
+import { RecipeFindOneByIdInteractor } from './usecases/findonebyid/recipe.findonebyid.interactor';
 
 @Module({
   providers: [
     RecipesResolver,
-    RecipesRepository,
     RecipeAddUsecase,
-    RecipeFindOneByIdUsecase,
+    {
+      provide: 'RecipeFindOneByIdUsecase',
+      useClass: RecipeFindOneByIdInteractor,
+    },
     RecipeFindAllUsecase,
     RecipeDeleteUsecase,
+    {
+      provide: 'RecipesRepository',
+      useClass: RecipesRepository,
+    },
     DateScalar
   ],
 })

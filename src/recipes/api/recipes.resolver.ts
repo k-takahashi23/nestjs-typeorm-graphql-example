@@ -6,11 +6,14 @@ import { RecipeAddUsecase } from '../usecases/add/recipe.add.usecase';
 import { RecipeFindOneByIdUsecase } from '../usecases/findonebyid/recipe.findonebyid.usecase';
 import { RecipeFindAllUsecase } from '../usecases/findall/recipe.findall.usecase';
 import { RecipeDeleteUsecase } from '../usecases/delete/recipe.delete.usecase';
+import { Inject } from '@nestjs/common';
 
 @Resolver(of => Recipe)
 export class RecipesResolver {
   constructor(
     private readonly recipeAddUsecase: RecipeAddUsecase,
+    
+    @Inject('RecipeFindOneByIdUsecase')
     private readonly recipeFindOneByIdUsecase: RecipeFindOneByIdUsecase,
     private readonly recipeFindAllUsecase: RecipeFindAllUsecase,
     private readonly recipeDeleteUsecase: RecipeDeleteUsecase

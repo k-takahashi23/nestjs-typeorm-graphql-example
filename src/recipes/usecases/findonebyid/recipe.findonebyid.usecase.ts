@@ -1,17 +1,7 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { Args } from '@nestjs/graphql';
-import { Recipe } from '../../domain/models/recipe.model';
-import { RecipesRepository } from '../../infrastructure/recipes.repository';
+import { Usecase } from "src/seedwork/usecase";
+import { RecipeFindOneByIdRequest } from "./recipe.findonebyid.request";
+import { RecipeFindOneByIdResponse } from "./recipe.findonebyid.response";
 
-@Injectable()
-export class RecipeFindOneByIdUsecase {
-  constructor(private readonly recipesRepository: RecipesRepository) {}
-  
-  async handle(@Args('id') id: string): Promise<Recipe> {
-    const recipe = await this.recipesRepository.findOneById(id);
-    if (!recipe) {
-      throw new NotFoundException(id);
-    }
-    return recipe;
-  }
+export interface RecipeFindOneByIdUsecase extends Usecase<RecipeFindOneByIdRequest, RecipeFindOneByIdResponse> {
+
 }
