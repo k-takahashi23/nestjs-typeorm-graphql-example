@@ -1,9 +1,11 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
-import { UsersRepositoryInterface } from '@/ordering/domain';
-import { InjectionTokens } from '@/ordering/ordering.injection-tokens';
+
 import { UserFindOneByIdRequest } from '../../usecases/user/find-one-by-id/user.find-one-by-id.request';
 import { UserFindOneByIdResponse } from '../../usecases/user/find-one-by-id/user.find-one-by-id.response';
 import { UserFindOneByIdUsecase } from '../../usecases/user/find-one-by-id/user.find-one-by-id.usecase';
+
+import { UsersRepositoryInterface } from '@/ordering/domain';
+import { InjectionTokens } from '@/ordering/ordering.injection-tokens';
 
 @Injectable()
 export class UserFindOneByIdInteractor implements UserFindOneByIdUsecase {

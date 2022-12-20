@@ -1,11 +1,12 @@
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
-import { DirectiveLocation, GraphQLDirective } from 'graphql';
-import { upperDirectiveTransformer } from '@/common';
-import { OrderingModule } from '@/ordering/ordering.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { DirectiveLocation, GraphQLDirective } from 'graphql';
+
+import { upperDirectiveTransformer } from '@/common';
 import { Item, User } from '@/ordering/domain';
+import { OrderingModule } from '@/ordering/ordering.module';
 
 @Module({
   imports: [

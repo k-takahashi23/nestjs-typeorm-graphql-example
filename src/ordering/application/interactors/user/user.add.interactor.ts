@@ -1,9 +1,11 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { User, UsersRepositoryInterface } from '@/ordering/domain/';
-import { InjectionTokens } from '@/ordering/ordering.injection-tokens';
+
 import { UserAddRequest } from '../../usecases/user/add/user.add.request';
 import { UserAddResponse } from '../../usecases/user/add/user.add.response';
 import { UserAddUsecase } from '../../usecases/user/add/user.add.usecase';
+
+import { User, UsersRepositoryInterface } from '@/ordering/domain/';
+import { InjectionTokens } from '@/ordering/ordering.injection-tokens';
 
 @Injectable()
 export class UserAddInteractor implements UserAddUsecase {

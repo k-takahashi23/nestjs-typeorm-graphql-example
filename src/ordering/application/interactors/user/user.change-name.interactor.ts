@@ -1,9 +1,11 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { UsersRepositoryInterface } from '@/ordering/domain';
-import { InjectionTokens } from '@/ordering/ordering.injection-tokens';
+
 import { UserChangeNameRequest } from '../../usecases/user/change-name/user.change-name.request';
 import { UserChangeNameResponse } from '../../usecases/user/change-name/user.change-name.response';
 import { UserChangeNameUsecase } from '../../usecases/user/change-name/user.change-name.usecase';
+
+import { UsersRepositoryInterface } from '@/ordering/domain';
+import { InjectionTokens } from '@/ordering/ordering.injection-tokens';
 
 @Injectable()
 export class UserChangeNameInteractor implements UserChangeNameUsecase {

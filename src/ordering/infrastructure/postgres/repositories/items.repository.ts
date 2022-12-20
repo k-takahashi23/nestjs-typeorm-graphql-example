@@ -1,8 +1,10 @@
-import { Item, ItemsRepositoryInterface } from '@/ordering/domain';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository as TypeOrmRepository } from 'typeorm';
+
 import { TypeOrmRepositoryBase } from '../typeorm';
+
+import { Item, ItemsRepositoryInterface } from '@/ordering/domain';
 
 @Injectable()
 export class ItemsRepository

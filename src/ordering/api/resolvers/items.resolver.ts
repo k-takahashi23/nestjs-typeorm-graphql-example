@@ -1,6 +1,8 @@
-import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { Item } from '@/ordering/domain';
 import { Inject } from '@nestjs/common';
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+
+import { NewItemInput, ChangeItemNameInput } from '../inputs';
+
 import {
   ItemFindOneByIdUsecase,
   ItemFindOneByIdRequest,
@@ -9,8 +11,8 @@ import {
   ItemChangeNameRequest,
   ItemChangeNameUsecase,
 } from '@/ordering/application';
+import { Item } from '@/ordering/domain';
 import { InjectionTokens } from '@/ordering/ordering.injection-tokens';
-import { NewItemInput, ChangeItemNameInput } from '../inputs';
 
 @Resolver(() => Item)
 export class ItemsResolver {

@@ -1,6 +1,8 @@
-import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { User } from '@/ordering/domain';
 import { Inject } from '@nestjs/common';
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+
+import { NewUserInput, ChangeUserNameInput } from '../inputs';
+
 import {
   UserFindOneByIdUsecase,
   UserAddUsecase,
@@ -9,8 +11,8 @@ import {
   UserAddRequest,
   UserChangeNameRequest,
 } from '@/ordering/application';
+import { User } from '@/ordering/domain';
 import { InjectionTokens } from '@/ordering/ordering.injection-tokens';
-import { NewUserInput, ChangeUserNameInput } from '../inputs';
 
 @Resolver(() => User)
 export class UsersResolver {
