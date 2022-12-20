@@ -1,11 +1,11 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { NewRecipeInput } from '../inputs/new-recipe.input';
 import { RecipesArgs } from '../args/recipes.args';
-import { Recipe } from '../../domain/models/recipe.model';
-import { RecipeAddUsecase } from '../../usecases/add/recipe.add.usecase';
-import { RecipeFindOneByIdUsecase } from '../../usecases/findonebyid/recipe.findonebyid.usecase';
-import { RecipeFindAllUsecase } from '../../usecases/findall/recipe.findall.usecase';
-import { RecipeDeleteUsecase } from '../../usecases/delete/recipe.delete.usecase';
+import { Recipe } from '../../domain/aggregates/recipe/recipe.entity';
+import { RecipeAddUsecase } from '../../application/usecases/recipe/add/recipe.add.usecase';
+import { RecipeFindOneByIdUsecase } from '../../application/usecases/findonebyid/recipe.findonebyid.usecase';
+import { RecipeFindAllUsecase } from '../../application/usecases/findall/recipe.findall.usecase';
+import { RecipeDeleteUsecase } from '../../application/usecases/delete/recipe.delete.usecase';
 import { Inject } from '@nestjs/common';
 
 @Resolver(of => Recipe)
