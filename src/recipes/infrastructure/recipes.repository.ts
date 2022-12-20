@@ -2,10 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { NewRecipeInput } from '../api/dto/new-recipe.input';
 import { RecipesArgs } from '../api/dto/recipes.args';
 import { Recipe } from '../domain/models/recipe.model';
-import { RecipesRepositoryInteface } from '../domain/models/recipes.repository.interface';
+import { RecipesRepositoryInterface } from '../domain/models/recipes.repository.interface';
 
 @Injectable()
-export class RecipesRepository implements RecipesRepositoryInteface {
+export class RecipesRepository implements RecipesRepositoryInterface {
   async save(data: NewRecipeInput): Promise<Recipe> {
     return {} as any;
   }

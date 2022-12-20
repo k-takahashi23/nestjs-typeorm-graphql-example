@@ -1,6 +1,6 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { Args } from '@nestjs/graphql';
-import { RecipesRepositoryInteface } from 'src/recipes/domain/models/recipes.repository.interface';
+import { RecipesRepositoryInterface } from 'src/recipes/domain/models/recipes.repository.interface';
 import { Recipe } from '../../domain/models/recipe.model';
 import { RecipeFindOneByIdUsecase } from './recipe.findonebyid.usecase';
 
@@ -8,7 +8,7 @@ import { RecipeFindOneByIdUsecase } from './recipe.findonebyid.usecase';
 export class RecipeFindOneByIdInteractor implements RecipeFindOneByIdUsecase {
   constructor(
     @Inject('RecipesRepository')
-    private readonly recipesRepository: RecipesRepositoryInteface
+    private readonly recipesRepository: RecipesRepositoryInterface
   ) {}
   
   async handle(@Args('id') id: string): Promise<Recipe> {
