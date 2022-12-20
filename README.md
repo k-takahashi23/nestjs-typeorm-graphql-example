@@ -13,3 +13,4 @@ NestJS + GraphQL + TypeORM でのDDD Like なレイヤードアーキテクチ�
 - index.ts でexport まとめる
 - Entity 周りのModule 追加を効率化する
 - DB のテーブル名周りをUtil 化する
+- args をうまいことやる
