@@ -9,7 +9,9 @@ import { RecipeFindAllUsecase } from './application/usecases/recipe/find-all/rec
 
 @Module({
   providers: [
+    // api
     RecipesResolver,
+    // application
     RecipeAddUsecase,
     {
       provide: 'RecipeFindOneByIdUsecase',
@@ -17,10 +19,12 @@ import { RecipeFindAllUsecase } from './application/usecases/recipe/find-all/rec
     },
     RecipeFindAllUsecase,
     RecipeDeleteUsecase,
+    // infrastructure
     {
       provide: 'RecipesRepository',
       useClass: RecipesRepository,
     },
+    // common
     DateScalar
   ],
 })
