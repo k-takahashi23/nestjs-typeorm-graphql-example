@@ -1,5 +1,4 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
-import { Item } from 'src/ordering/domain/aggregates/item/item.entity';
 import { ItemsRepositoryInterface } from 'src/ordering/domain/aggregates/item/items.repository.interface';
 import { ItemFindOneByIdRequest } from '../../usecases/item/find-one-by-id/item.find-one-by-id.request';
 import { ItemFindOneByIdResponse } from '../../usecases/item/find-one-by-id/item.find-one-by-id.response';
@@ -17,12 +16,12 @@ export class ItemFindOneByIdInteractor implements ItemFindOneByIdUsecase {
   ): Promise<ItemFindOneByIdResponse> {
     const { id } = request;
 
-    // TODO
     const item = await this.itemsRepository.findOneById(id);
+    // TODO: Either 型でやる
     if (!item) {
       throw new NotFoundException(id);
     }
 
-    return new ItemFindOneByIdResponse(new Item('aaa', 'aaa'));
+    return new ItemFindOneByIdResponse(item);
   }
 }

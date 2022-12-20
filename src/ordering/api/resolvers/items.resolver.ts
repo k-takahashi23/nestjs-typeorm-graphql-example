@@ -5,7 +5,6 @@ import { ItemFindOneByIdUsecase } from 'src/ordering/application/usecases/item/f
 import { ItemFindOneByIdRequest } from 'src/ordering/application/usecases/item/find-one-by-id/item.find-one-by-id.request';
 import { ItemAddUsecase } from 'src/ordering/application/usecases/item/add/item.add.usecase';
 import { ItemAddRequest } from 'src/ordering/application/usecases/item/add/item.add.request';
-import { v4 as uuidv4 } from "uuid";
 
 @Resolver((of) => Item)
 export class ItemsResolver {
