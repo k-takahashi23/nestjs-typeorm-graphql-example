@@ -27,3 +27,4 @@ NestJS + GraphQL + TypeORM でのDDD Like なレイヤードアーキテクチ�
 - DomainService のパターン作る
 - args をうまいことやる
 - Date をISO 拡張形式にする
+- GraphQL のObject とデータモデルは流石に分けたほうがいいかも
