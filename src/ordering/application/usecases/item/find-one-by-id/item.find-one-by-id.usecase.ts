@@ -1,4 +1,4 @@
-import { Usecase } from 'src/seedwork/usecase';
+import { Usecase } from 'src/seedwork/application/usecase';
 import { ItemFindOneByIdRequest } from './item.find-one-by-id.request';
 import { ItemFindOneByIdResponse } from './item.find-one-by-id.response';
 

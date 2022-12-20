@@ -1,5 +1,5 @@
 import { Item } from 'src/ordering/domain/aggregates/item/item.entity';
-import { Response } from 'src/seedwork/response';
+import { Response } from 'src/seedwork/application/response';
 
 export class ItemFindOneByIdResponse implements Response {
   public constructor(item: Item) {
