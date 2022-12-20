@@ -10,9 +10,7 @@ import { InjectionTokens } from './ordering.injection-tokens';
 import { ItemChangeNameInteractor } from './application/interactors/item/item.change-name.interactor';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([Item])
-  ],
+  imports: [TypeOrmModule.forFeature([Item])],
   providers: [
     // api
     ItemsResolver,

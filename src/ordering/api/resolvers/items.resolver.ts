@@ -30,14 +30,18 @@ export class ItemsResolver {
   }
 
   @Mutation((_) => Item)
-  public async addItem(@Args('newItemInput') input: NewItemInput,): Promise<Item> {
+  public async addItem(
+    @Args('newItemInput') input: NewItemInput,
+  ): Promise<Item> {
     const request = new ItemAddRequest(input.name);
     const response = await this.itemAddInteractor.handle(request);
     return response.item;
   }
 
   @Mutation((_) => Item)
-  public async changeItemName(@Args('changeItemNameInput') input: ChangeItemNameInput,): Promise<Item> {
+  public async changeItemName(
+    @Args('changeItemNameInput') input: ChangeItemNameInput,
+  ): Promise<Item> {
     const request = new ItemChangeNameRequest(input.id, input.newName);
     const response = await this.itemChangeNameInteractor.handle(request);
     return response.item;

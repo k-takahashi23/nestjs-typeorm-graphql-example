@@ -7,14 +7,16 @@ import { ItemChangeNameUsecase } from '../../usecases/item/change-name/item.chan
 
 @Injectable()
 export class ItemChangeNameInteractor implements ItemChangeNameUsecase {
-  constructor(
+  public constructor(
     @Inject(InjectionTokens.ItemsRepository)
     private readonly itemsRepository: ItemsRepositoryInterface,
   ) {}
 
-  async handle(request: ItemChangeNameRequest): Promise<ItemChangeNameResponse> {
+  public async handle(
+    request: ItemChangeNameRequest,
+  ): Promise<ItemChangeNameResponse> {
     const item = await this.itemsRepository.findOneById(request.id);
-    item.changeName(request.newName)
+    item.changeName(request.newName);
     await this.itemsRepository.save(item);
     return new ItemChangeNameResponse(item);
   }

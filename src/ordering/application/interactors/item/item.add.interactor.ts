@@ -8,12 +8,12 @@ import { ItemAddUsecase } from '../../usecases/item/add/item.add.usecase';
 
 @Injectable()
 export class ItemAddInteractor implements ItemAddUsecase {
-  constructor(
+  public constructor(
     @Inject(InjectionTokens.ItemsRepository)
     private readonly itemsRepository: ItemsRepositoryInterface,
   ) {}
 
-  async handle(request: ItemAddRequest): Promise<ItemAddResponse> {
+  public async handle(request: ItemAddRequest): Promise<ItemAddResponse> {
     const newItem = Item.new(request.name);
     await this.itemsRepository.save(newItem);
     return new ItemAddResponse(newItem);

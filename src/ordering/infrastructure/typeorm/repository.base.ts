@@ -3,7 +3,9 @@ import { Repository as TypeOrmRepository } from 'typeorm';
 import { Repository } from 'src/seedwork/repository';
 
 @Injectable()
-export abstract class TypeOrmRepositoryBase<TEntity> implements Repository<TEntity> {
+export abstract class TypeOrmRepositoryBase<TEntity>
+  implements Repository<TEntity>
+{
   private readonly _repository: TypeOrmRepository<TEntity>;
 
   public constructor(repository: TypeOrmRepository<TEntity>) {
@@ -16,7 +18,7 @@ export abstract class TypeOrmRepositoryBase<TEntity> implements Repository<TEnti
 
   public async findOneById(id: string): Promise<TEntity> {
     // TODO: id を渡すためとりあえずas any
-    return this._repository.findOneBy({ id } as any)
+    return this._repository.findOneBy({ id } as any);
   }
 
   public async save(entity: TEntity): Promise<void> {

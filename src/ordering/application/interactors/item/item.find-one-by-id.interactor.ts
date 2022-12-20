@@ -7,12 +7,12 @@ import { ItemFindOneByIdUsecase } from '../../usecases/item/find-one-by-id/item.
 
 @Injectable()
 export class ItemFindOneByIdInteractor implements ItemFindOneByIdUsecase {
-  constructor(
+  public constructor(
     @Inject(InjectionTokens.ItemsRepository)
     private readonly itemsRepository: ItemsRepositoryInterface,
   ) {}
 
-  async handle(
+  public async handle(
     request: ItemFindOneByIdRequest,
   ): Promise<ItemFindOneByIdResponse> {
     const item = await this.itemsRepository.findOneById(request.id);
