@@ -13,8 +13,8 @@ export class ItemAddInteractor implements ItemAddUsecase {
   ) {}
 
   async handle(request: ItemAddRequest): Promise<ItemAddResponse> {
-    const newItem = new Item(request.id, request.id);
+    const newItem = Item.new(request.name);
     await this.itemsRepository.save(newItem);
-    return new ItemAddResponse(new Item(request.id, 'aaa'));
+    return new ItemAddResponse(newItem);
   }
 }

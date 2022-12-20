@@ -10,13 +10,10 @@ import { v4 as uuidv4 } from "uuid";
 @Resolver((of) => Item)
 export class ItemsResolver {
   constructor(
-    @Inject('ItemAddUsecase')
-    private readonly itemAddInteractor: ItemAddUsecase,
-
     @Inject('ItemFindOneByIdUsecase')
     private readonly itemFindOneByIdInteractor: ItemFindOneByIdUsecase,
-    // private readonly itemFindAllUsecase: ItemFindAllUsecase,
-    // private readonly itemDeleteUsecase: ItemDeleteUsecase,
+    @Inject('ItemAddUsecase')
+    private readonly itemAddInteractor: ItemAddUsecase,
   ) {}
 
   @Query((_) => Item)
@@ -26,23 +23,10 @@ export class ItemsResolver {
     return response.item;
   }
 
-  // @Query((returns) => [Item])
-  // async items(@Args() itemsArgs: ItemsArgs): Promise<Item[]> {
-  //   return await this.itemFindAllUsecase.handle(itemsArgs);
-  // }
-
   @Mutation((_) => Item)
-  async addItem(): Promise<Item> {
-    // TMP
-    const uuid = uuidv4()
-    console.log('uuid,', uuid)
-    const request = new ItemAddRequest(uuid)
+  async addItem(@Args('name') name: string): Promise<Item> {
+    const request = new ItemAddRequest(name)
     const response = await this.itemAddInteractor.handle(request);
     return response.item;
   }
-
-  // @Mutation((returns) => Boolean)
-  // async removeItem(@Args('id') id: string) {
-  //   return await this.itemDeleteUsecase.handle(id);
-  // }
 }

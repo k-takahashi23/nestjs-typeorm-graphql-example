@@ -12,6 +12,6 @@ export class NewItemInput {
   @Length(30, 255)
   description?: string;
 
-  @Field((type) => [String])
+  @Field((_) => [String])
   ingredients: string[];
 }
