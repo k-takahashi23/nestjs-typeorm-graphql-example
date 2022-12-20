@@ -9,37 +9,37 @@ import { RecipeFindAllUsecase } from 'src/recipes/application/usecases/recipe/fi
 import { RecipeDeleteUsecase } from 'src/recipes/application/usecases/recipe/delete/recipe.delete.usecase';
 import { RecipeFindOneByIdRequest } from 'src/recipes/application/usecases/recipe/find-one-by-id/recipe.find-one-by-id.request';
 
-@Resolver(of => Recipe)
+@Resolver((of) => Recipe)
 export class RecipesResolver {
   constructor(
     private readonly recipeAddUsecase: RecipeAddUsecase,
-    
+
     @Inject('RecipeFindOneByIdUsecase')
     private readonly recipeFindOneByIdUsecase: RecipeFindOneByIdUsecase,
     private readonly recipeFindAllUsecase: RecipeFindAllUsecase,
-    private readonly recipeDeleteUsecase: RecipeDeleteUsecase
+    private readonly recipeDeleteUsecase: RecipeDeleteUsecase,
   ) {}
 
-  @Query(returns => Recipe)
+  @Query((returns) => Recipe)
   async recipe(@Args('id') id: string): Promise<Recipe> {
     const request = new RecipeFindOneByIdRequest(id);
     const response = await this.recipeFindOneByIdUsecase.handle(request);
     return response.recipe;
   }
 
-  @Query(returns => [Recipe])
+  @Query((returns) => [Recipe])
   async recipes(@Args() recipesArgs: RecipesArgs): Promise<Recipe[]> {
     return await this.recipeFindAllUsecase.handle(recipesArgs);
   }
 
-  @Mutation(returns => Recipe)
+  @Mutation((returns) => Recipe)
   async addRecipe(
     @Args('newRecipeData') newRecipeData: NewRecipeInput,
   ): Promise<Recipe> {
     return await this.recipeAddUsecase.handle(newRecipeData);
   }
 
-  @Mutation(returns => Boolean)
+  @Mutation((returns) => Boolean)
   async removeRecipe(@Args('id') id: string) {
     return await this.recipeDeleteUsecase.handle(id);
   }

@@ -25,7 +25,7 @@ import { RecipeFindAllUsecase } from './application/usecases/recipe/find-all/rec
       useClass: RecipesRepository,
     },
     // common
-    DateScalar
+    DateScalar,
   ],
 })
 export class RecipesModule {}

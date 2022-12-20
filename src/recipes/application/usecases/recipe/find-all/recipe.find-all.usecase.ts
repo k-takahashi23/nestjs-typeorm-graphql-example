@@ -8,9 +8,9 @@ import { RecipesRepositoryInterface } from 'src/recipes/domain/aggregates/recipe
 export class RecipeFindAllUsecase {
   constructor(
     @Inject('RecipesRepository')
-    private readonly recipesRepository: RecipesRepositoryInterface
+    private readonly recipesRepository: RecipesRepositoryInterface,
   ) {}
-  
+
   async handle(@Args() recipesArgs: RecipesArgs): Promise<Recipe[]> {
     return this.recipesRepository.findAll(recipesArgs);
   }

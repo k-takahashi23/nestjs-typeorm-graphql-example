@@ -8,9 +8,9 @@ import { Recipe } from '../../../../domain/aggregates/recipe/recipe.entity';
 export class RecipeAddUsecase {
   constructor(
     @Inject('RecipesRepository')
-    private readonly recipesRepository: RecipesRepositoryInterface
+    private readonly recipesRepository: RecipesRepositoryInterface,
   ) {}
-  
+
   async handle(
     @Args('newRecipeData') newRecipeData: NewRecipeInput,
   ): Promise<Recipe> {

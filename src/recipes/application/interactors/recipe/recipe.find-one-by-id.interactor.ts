@@ -8,10 +8,12 @@ import { RecipeFindOneByIdUsecase } from '../../usecases/recipe/find-one-by-id/r
 export class RecipeFindOneByIdInteractor implements RecipeFindOneByIdUsecase {
   constructor(
     @Inject('RecipesRepository')
-    private readonly recipesRepository: RecipesRepositoryInterface
+    private readonly recipesRepository: RecipesRepositoryInterface,
   ) {}
-  
-  async handle(request: RecipeFindOneByIdRequest): Promise<RecipeFindOneByIdResponse> {
+
+  async handle(
+    request: RecipeFindOneByIdRequest,
+  ): Promise<RecipeFindOneByIdResponse> {
     const { id } = request;
 
     const recipe = await this.recipesRepository.findOneById(id);

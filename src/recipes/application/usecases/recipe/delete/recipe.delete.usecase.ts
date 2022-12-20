@@ -6,9 +6,9 @@ import { RecipesRepositoryInterface } from 'src/recipes/domain/aggregates/recipe
 export class RecipeDeleteUsecase {
   constructor(
     @Inject('RecipesRepository')
-    private readonly recipesRepository: RecipesRepositoryInterface
+    private readonly recipesRepository: RecipesRepositoryInterface,
   ) {}
-  
+
   async handle(@Args('id') id: string) {
     return await this.recipesRepository.remove(id);
   }
