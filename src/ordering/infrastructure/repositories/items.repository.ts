@@ -3,10 +3,10 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { Item } from '../../domain/aggregates/item/item.entity';
 import { ItemsRepositoryInterface } from 'src/ordering/domain/aggregates/item/items.repository.interface';
 import { Repository as TypeOrmRepository } from 'typeorm';
-import { RepositoryBase } from '../typeorm/repository.base';
+import { TypeOrmRepositoryBase } from '../typeorm/repository.base';
 
 @Injectable()
-export class ItemsRepository extends RepositoryBase<Item> implements ItemsRepositoryInterface {
+export class ItemsRepository extends TypeOrmRepositoryBase<Item> implements ItemsRepositoryInterface {
   public constructor(
     @InjectRepository(Item)
     repository: TypeOrmRepository<Item>

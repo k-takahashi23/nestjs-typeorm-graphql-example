@@ -3,7 +3,7 @@ import { Repository as TypeOrmRepository } from 'typeorm';
 import { Repository } from 'src/seedwork/repository';
 
 @Injectable()
-export abstract class RepositoryBase<TEntity> implements Repository<TEntity> {
+export abstract class TypeOrmRepositoryBase<TEntity> implements Repository<TEntity> {
   private readonly _repository: TypeOrmRepository<TEntity>;
 
   public constructor(repository: TypeOrmRepository<TEntity>) {
