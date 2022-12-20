@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { Repository as TypeOrmRepository } from 'typeorm';
+import { FindOptionsWhere, Repository as TypeOrmRepository } from 'typeorm';
 
-import { Repository } from '@/seedwork';
+import { Entity, Repository } from '@/seedwork';
 
 @Injectable()
-export abstract class TypeOrmRepositoryBase<TEntity>
+export abstract class TypeOrmRepositoryBase<TEntity extends Entity>
   implements Repository<TEntity>
 {
   private readonly _repository: TypeOrmRepository<TEntity>;
@@ -18,8 +18,7 @@ export abstract class TypeOrmRepositoryBase<TEntity>
   }
 
   public async findOneById(id: string): Promise<TEntity> {
-    // TODO: id を渡すためとりあえずas any
-    return this._repository.findOneBy({ id } as any);
+    return this._repository.findOneBy({ id } as FindOptionsWhere<TEntity>);
   }
 
   public async save(entity: TEntity): Promise<void> {
