@@ -3,9 +3,9 @@ import { DateScalar } from '../common/scalars/date.scalar';
 import { RecipesResolver } from './api/resolvers/recipes.resolver';
 import { RecipesRepository } from './infrastructure/repositories/recipes.repository';
 import { RecipeAddUsecase } from './application/usecases/recipe/add/recipe.add.usecase';
-import { RecipeDeleteUsecase } from './application/usecases/delete/recipe.delete.usecase';
-import { RecipeFindAllUsecase } from './application/usecases/findall/recipe.findall.usecase';
-import { RecipeFindOneByIdInteractor } from './application/usecases/findonebyid/recipe.findonebyid.interactor';
+import { RecipeFindOneByIdInteractor } from './application/usecases/recipe/findonebyid/recipe-findonebyid.interactor';
+import { RecipeDeleteUsecase } from './application/usecases/recipe/delete/recipe.delete.usecase';
+import { RecipeFindAllUsecase } from './application/usecases/recipe/findall/recipe.findall.usecase';
 
 @Module({
   providers: [

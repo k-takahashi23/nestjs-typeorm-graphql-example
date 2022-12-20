@@ -1,7 +1,8 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { AggregateRoot } from 'src/seedwork/aggregate-root';
 
 @ObjectType({ description: 'recipe' })
-export class Recipe {
+export class Recipe implements AggregateRoot {
 
   // TODO: 整理
   constructor(id: string) {

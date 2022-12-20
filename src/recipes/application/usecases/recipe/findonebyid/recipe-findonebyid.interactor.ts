@@ -2,7 +2,7 @@ import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { Args } from '@nestjs/graphql';
 import { Recipe } from 'src/recipes/domain/aggregates/recipe/recipe.entity';
 import { RecipesRepositoryInterface } from 'src/recipes/domain/aggregates/recipe/recipes.repository.interface';
-import { RecipeFindOneByIdUsecase } from './recipe.findonebyid.usecase';
+import { RecipeFindOneByIdUsecase } from './recipe-findonebyid.usecase';
 
 @Injectable()
 export class RecipeFindOneByIdInteractor implements RecipeFindOneByIdUsecase {
