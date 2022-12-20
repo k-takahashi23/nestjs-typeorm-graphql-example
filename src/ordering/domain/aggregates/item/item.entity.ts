@@ -12,9 +12,9 @@ export class Item implements AggregateRoot {
 
   @Field((_type) => ID)
   @PrimaryColumn()
-  id: string;
+  public id: string;
 
   @Field()
   @Column()
-  name: string;
+  public name: string;
 }

@@ -1,6 +1,6 @@
 import { Request } from 'src/seedwork/request';
 
-export class RecipeAddRequest implements Request {
+export class ItemFindOneByIdRequest implements Request {
   public constructor(id: string) {
     this.id = id;
   }

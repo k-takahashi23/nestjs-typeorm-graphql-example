@@ -1,9 +1,8 @@
 import { Module } from '@nestjs/common';
 import { DateScalar } from '../common/scalars/date.scalar';
-import { RecipesResolver } from './api/resolvers/recipes.resolver';
-import { RecipesRepository } from './infrastructure/repositories/recipes.repository';
-import { RecipeFindOneByIdInteractor } from './application/interactors/recipe/recipe.find-one-by-id.interactor';
-import { RecipeAddInteractor } from './application/interactors/recipe/recipe.add.interactor';
+import { ItemsResolver } from './api/resolvers/items.resolver';
+import { ItemFindOneByIdInteractor } from './application/interactors/item/item.find-one-by-id.interactor';
+import { ItemAddInteractor } from './application/interactors/item/item.add.interactor';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Item } from './domain/aggregates/item/item.entity';
 import { ItemsRepository } from './infrastructure/repositories/items.repository';
@@ -14,21 +13,17 @@ import { ItemsRepository } from './infrastructure/repositories/items.repository'
   ],
   providers: [
     // api
-    RecipesResolver,
+    ItemsResolver,
     // application
     {
-      provide: 'RecipeAddUsecase',
-      useClass: RecipeAddInteractor,
+      provide: 'ItemAddUsecase',
+      useClass: ItemAddInteractor,
     },
     {
-      provide: 'RecipeFindOneByIdUsecase',
-      useClass: RecipeFindOneByIdInteractor,
+      provide: 'ItemFindOneByIdUsecase',
+      useClass: ItemFindOneByIdInteractor,
     },
     // infrastructure
-    {
-      provide: 'RecipesRepository',
-      useClass: RecipesRepository,
-    },
     {
       provide: 'ItemsRepository',
       useClass: ItemsRepository,
