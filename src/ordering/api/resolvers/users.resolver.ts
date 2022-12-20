@@ -1,7 +1,14 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { User } from '@/ordering/domain';
 import { Inject } from '@nestjs/common';
-import { UserFindOneByIdUsecase, UserAddUsecase, UserChangeNameUsecase, UserFindOneByIdRequest, UserAddRequest, UserChangeNameRequest } from '@/ordering/application';
+import {
+  UserFindOneByIdUsecase,
+  UserAddUsecase,
+  UserChangeNameUsecase,
+  UserFindOneByIdRequest,
+  UserAddRequest,
+  UserChangeNameRequest,
+} from '@/ordering/application';
 import { InjectionTokens } from '@/ordering/ordering.injection-tokens';
 import { NewUserInput, ChangeUserNameInput } from '../inputs';
 
