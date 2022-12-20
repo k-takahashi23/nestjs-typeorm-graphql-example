@@ -24,7 +24,6 @@ import { Item } from './ordering/domain/aggregates/item/item.entity';
         ],
       },
     }),
-    // TODO: db module にする
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',

@@ -6,6 +6,8 @@ import { ItemAddInteractor } from './application/interactors/item/item.add.inter
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Item } from './domain/aggregates/item/item.entity';
 import { ItemsRepository } from './infrastructure/repositories/items.repository';
+import { InjectionTokens } from './ordering.injection-tokens';
+import { ItemChangeNameInteractor } from './application/interactors/item/item.change-name.interactor';
 
 @Module({
   imports: [
@@ -16,16 +18,20 @@ import { ItemsRepository } from './infrastructure/repositories/items.repository'
     ItemsResolver,
     // application
     {
-      provide: 'ItemAddUsecase',
+      provide: InjectionTokens.ItemFindOneByIdUsecase,
+      useClass: ItemFindOneByIdInteractor,
+    },
+    {
+      provide: InjectionTokens.ItemAddUsecase,
       useClass: ItemAddInteractor,
     },
     {
-      provide: 'ItemFindOneByIdUsecase',
-      useClass: ItemFindOneByIdInteractor,
+      provide: InjectionTokens.ItemChangeNameUsecase,
+      useClass: ItemChangeNameInteractor,
     },
     // infrastructure
     {
-      provide: 'ItemsRepository',
+      provide: InjectionTokens.ItemsRepository,
       useClass: ItemsRepository,
     },
     // common

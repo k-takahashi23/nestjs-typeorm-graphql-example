@@ -23,4 +23,8 @@ export class Item implements AggregateRoot {
   @Field()
   @Column()
   public name: string;
+
+  public changeName(newName: string) {
+    this.name = newName;
+  }
 }

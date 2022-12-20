@@ -6,27 +6,40 @@ import { ItemFindOneByIdRequest } from 'src/ordering/application/usecases/item/f
 import { ItemAddUsecase } from 'src/ordering/application/usecases/item/add/item.add.usecase';
 import { ItemAddRequest } from 'src/ordering/application/usecases/item/add/item.add.request';
 import { NewItemInput } from '../inputs/new-item.input';
+import { ChangeItemNameInput } from '../inputs/change-item-name.input';
+import { InjectionTokens } from 'src/ordering/ordering.injection-tokens';
+import { ItemChangeNameUsecase } from 'src/ordering/application/usecases/item/change-name/item.change-name.usecase';
+import { ItemChangeNameRequest } from 'src/ordering/application/usecases/item/change-name/item.change-name.request';
 
-@Resolver((of) => Item)
+@Resolver((_) => Item)
 export class ItemsResolver {
-  constructor(
-    @Inject('ItemFindOneByIdUsecase')
+  public constructor(
+    @Inject(InjectionTokens.ItemFindOneByIdUsecase)
     private readonly itemFindOneByIdInteractor: ItemFindOneByIdUsecase,
-    @Inject('ItemAddUsecase')
+    @Inject(InjectionTokens.ItemAddUsecase)
     private readonly itemAddInteractor: ItemAddUsecase,
+    @Inject(InjectionTokens.ItemChangeNameUsecase)
+    private readonly itemChangeNameInteractor: ItemChangeNameUsecase,
   ) {}
 
   @Query((_) => Item)
-  async item(@Args('id') id: string): Promise<Item> {
+  public async item(@Args('id') id: string): Promise<Item> {
     const request = new ItemFindOneByIdRequest(id);
     const response = await this.itemFindOneByIdInteractor.handle(request);
     return response.item;
   }
 
   @Mutation((_) => Item)
-  async addItem(@Args('newItemInput') newItemInput: NewItemInput,): Promise<Item> {
-    const request = new ItemAddRequest(newItemInput.name);
+  public async addItem(@Args('newItemInput') input: NewItemInput,): Promise<Item> {
+    const request = new ItemAddRequest(input.name);
     const response = await this.itemAddInteractor.handle(request);
+    return response.item;
+  }
+
+  @Mutation((_) => Item)
+  public async changeItemName(@Args('changeItemNameInput') input: ChangeItemNameInput,): Promise<Item> {
+    const request = new ItemChangeNameRequest(input.id, input.newName);
+    const response = await this.itemChangeNameInteractor.handle(request);
     return response.item;
   }
 }
