@@ -3,10 +3,11 @@ import { NewRecipeInput } from '../inputs/new-recipe.input';
 import { RecipesArgs } from '../args/recipes.args';
 import { Recipe } from '../../domain/aggregates/recipe/recipe.entity';
 import { RecipeAddUsecase } from '../../application/usecases/recipe/add/recipe.add.usecase';
-import { RecipeFindOneByIdUsecase } from '../../application/usecases/findonebyid/recipe.findonebyid.usecase';
-import { RecipeFindAllUsecase } from '../../application/usecases/findall/recipe.findall.usecase';
-import { RecipeDeleteUsecase } from '../../application/usecases/delete/recipe.delete.usecase';
 import { Inject } from '@nestjs/common';
+import { RecipeFindOneByIdUsecase } from 'src/recipes/application/usecases/recipe/find-one-by-id/recipe.find-one-by-id.usecase';
+import { RecipeFindAllUsecase } from 'src/recipes/application/usecases/recipe/find-all/recipe.find-all.usecase';
+import { RecipeDeleteUsecase } from 'src/recipes/application/usecases/recipe/delete/recipe.delete.usecase';
+import { RecipeFindOneByIdRequest } from 'src/recipes/application/usecases/recipe/find-one-by-id/recipe.find-one-by-id.request';
 
 @Resolver(of => Recipe)
 export class RecipesResolver {
@@ -21,7 +22,9 @@ export class RecipesResolver {
 
   @Query(returns => Recipe)
   async recipe(@Args('id') id: string): Promise<Recipe> {
-    return await this.recipeFindOneByIdUsecase.handle(id);
+    const request = new RecipeFindOneByIdRequest(id);
+    const response = await this.recipeFindOneByIdUsecase.handle(request);
+    return response.recipe;
   }
 
   @Query(returns => [Recipe])
