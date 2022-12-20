@@ -1,3 +1,3 @@
 ## What's this?
 
-TODO
+NestJS + GraphQL + TypeORM でのDDD Like なレイヤードアーキテクチャのサンプル。
