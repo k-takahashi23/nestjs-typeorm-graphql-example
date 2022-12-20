@@ -23,4 +23,6 @@ TODO: ちゃんと書く
 
 ## クラス図
 
+TODO: 暫定版の概念レベル
+
 ![クラス図](docs/uml/class.png)
