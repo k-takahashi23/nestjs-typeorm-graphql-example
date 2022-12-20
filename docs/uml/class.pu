@@ -1,0 +1,93 @@
+@startuml class
+
+package seedwork {
+  package application as seedworkapplication  {
+    interface "Usecase<TRequest extends Request, TResponse extends Response>" as Usecase {
+      handle(request: Request): Promise<Response>
+    }
+
+    interface Request {}
+
+    interface Response {}
+
+    Request <-- Usecase
+    Response <-- Usecase
+  }
+
+  package domain as seedworkdomain {
+    interface AggregateRoot {}
+
+    interface Entity {
+      id: string
+    }
+
+    interface ValueObject {}
+
+    interface "Repository<T extends AggregateRoot>" as Repository {
+      findall()
+      findOneById()
+      save()
+      remove()
+    }
+
+    AggregateRoot <|-- Entity
+    AggregateRoot o-- Entity
+    Entity o-- Entity
+    Entity o-- ValueObject
+
+    AggregateRoot <-- Repository
+  }
+}
+
+package ordering {
+
+  package api {
+    class UsersResolver {}
+  }
+
+  package application {
+
+    interface UserAddUsecase {}
+
+    class UserAddRequest {}
+
+    class UserAddResponse {}
+
+    class UserAddInteractor {}
+
+    Usecase <|-- UserAddUsecase
+    Request <|.. UserAddRequest
+    Response <|.. UserAddResponse
+    UserAddUsecase <|.. UserAddInteractor
+    UserAddRequest <.. UserAddUsecase
+    UserAddResponse <.. UserAddUsecase
+
+    UserAddUsecase <-- UsersResolver
+  }
+
+  package domain {
+    package user_aggregate {
+      class User {}
+
+      interface UsersRepositoryInterface {}
+
+      AggregateRoot <|.. User
+      Repository <|-- UsersRepositoryInterface
+      User <-- UsersRepositoryInterface
+
+      UsersRepositoryInterface <-- UserAddUsecase
+    }
+  }
+
+  package infrastructure {
+    abstract class "RepositoryBase<TEntity extends Entity>" as RepositoryBase {}
+
+    class UsersRepository {}
+
+    RepositoryBase <|-- UsersRepository
+    UsersRepositoryInterface <|.. UsersRepository
+    User <-- UsersRepository
+  }
+}
+
+@enduml
