@@ -6,12 +6,17 @@ NestJS + GraphQL + TypeORM でのDDD Like なレイヤードアーキテクチ�
 
 - ある程度レイヤーごとの詰め替えはする。（Simple > Easy）
 - ドメインモデルのデコレータ周りは効率化のため許容する（ドメインモデル = データモデル = GraphQL モデル）
+- TODO: CQRS にする
 
 ## クラス図
 
-TODO: 暫定版の概念レベル
+### Write Model (Lightweight Read Model)
 
 ![クラス図](docs/uml/class.png)
+
+### Read Model
+
+TODO: Query Service を使うパターンを整理
 
 ## TODO
 
