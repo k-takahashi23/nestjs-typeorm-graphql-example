@@ -1,9 +1,7 @@
-import { Injectable } from '@nestjs/common';
 import { FindOptionsWhere, Repository as TypeOrmRepository } from 'typeorm';
 
 import { Entity, Repository } from '@/seedwork';
 
-@Injectable()
 export abstract class TypeOrmRepositoryBase<TEntity extends Entity>
   implements Repository<TEntity>
 {
