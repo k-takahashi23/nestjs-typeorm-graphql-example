@@ -1,5 +1,5 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
-import { RecipesRepositoryInterface } from 'src/recipes/domain/aggregates/recipe/recipes.repository.interface';
+import { RecipesRepositoryInterface } from 'src/ordering/domain/aggregates/recipe/recipes.repository.interface';
 import { RecipeFindOneByIdRequest } from '../../usecases/recipe/find-one-by-id/recipe.find-one-by-id.request';
 import { RecipeFindOneByIdResponse } from '../../usecases/recipe/find-one-by-id/recipe.find-one-by-id.response';
 import { RecipeFindOneByIdUsecase } from '../../usecases/recipe/find-one-by-id/recipe.find-one-by-id.usecase';

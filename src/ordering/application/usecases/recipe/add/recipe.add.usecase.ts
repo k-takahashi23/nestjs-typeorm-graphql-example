@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Args } from '@nestjs/graphql';
-import { RecipesRepositoryInterface } from 'src/recipes/domain/aggregates/recipe/recipes.repository.interface';
+import { RecipesRepositoryInterface } from 'src/ordering/domain/aggregates/recipe/recipes.repository.interface';
 import { NewRecipeInput } from '../../../../api/inputs/new-recipe.input';
 import { Recipe } from '../../../../domain/aggregates/recipe/recipe.entity';
 

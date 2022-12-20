@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { NewRecipeInput } from '../../api/inputs/new-recipe.input';
 import { RecipesArgs } from '../../api/args/recipes.args';
 import { Recipe } from '../../domain/aggregates/recipe/recipe.entity';
-import { RecipesRepositoryInterface } from 'src/recipes/domain/aggregates/recipe/recipes.repository.interface';
+import { RecipesRepositoryInterface } from 'src/ordering/domain/aggregates/recipe/recipes.repository.interface';
 
 @Injectable()
 export class RecipesRepository implements RecipesRepositoryInterface {

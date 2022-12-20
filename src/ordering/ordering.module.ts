@@ -28,4 +28,4 @@ import { RecipeFindAllUsecase } from './application/usecases/recipe/find-all/rec
     DateScalar,
   ],
 })
-export class RecipesModule {}
+export class OrderingModule {}

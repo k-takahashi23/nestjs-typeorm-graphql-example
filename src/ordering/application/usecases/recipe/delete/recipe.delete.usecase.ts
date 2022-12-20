@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Args } from '@nestjs/graphql';
-import { RecipesRepositoryInterface } from 'src/recipes/domain/aggregates/recipe/recipes.repository.interface';
+import { RecipesRepositoryInterface } from 'src/ordering/domain/aggregates/recipe/recipes.repository.interface';
 
 @Injectable()
 export class RecipeDeleteUsecase {

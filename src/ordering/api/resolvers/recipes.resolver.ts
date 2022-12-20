@@ -4,10 +4,10 @@ import { RecipesArgs } from '../args/recipes.args';
 import { Recipe } from '../../domain/aggregates/recipe/recipe.entity';
 import { RecipeAddUsecase } from '../../application/usecases/recipe/add/recipe.add.usecase';
 import { Inject } from '@nestjs/common';
-import { RecipeFindOneByIdUsecase } from 'src/recipes/application/usecases/recipe/find-one-by-id/recipe.find-one-by-id.usecase';
-import { RecipeFindAllUsecase } from 'src/recipes/application/usecases/recipe/find-all/recipe.find-all.usecase';
-import { RecipeDeleteUsecase } from 'src/recipes/application/usecases/recipe/delete/recipe.delete.usecase';
-import { RecipeFindOneByIdRequest } from 'src/recipes/application/usecases/recipe/find-one-by-id/recipe.find-one-by-id.request';
+import { RecipeFindOneByIdUsecase } from 'src/ordering/application/usecases/recipe/find-one-by-id/recipe.find-one-by-id.usecase';
+import { RecipeFindAllUsecase } from 'src/ordering/application/usecases/recipe/find-all/recipe.find-all.usecase';
+import { RecipeDeleteUsecase } from 'src/ordering/application/usecases/recipe/delete/recipe.delete.usecase';
+import { RecipeFindOneByIdRequest } from 'src/ordering/application/usecases/recipe/find-one-by-id/recipe.find-one-by-id.request';
 
 @Resolver((of) => Recipe)
 export class RecipesResolver {
