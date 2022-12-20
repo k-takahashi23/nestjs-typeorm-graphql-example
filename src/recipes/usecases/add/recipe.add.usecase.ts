@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Args } from '@nestjs/graphql';
 import { RecipesRepositoryInterface } from 'src/recipes/domain/models/recipes.repository.interface';
-import { NewRecipeInput } from '../../api/dto/new-recipe.input';
+import { NewRecipeInput } from '../../api/inputs/new-recipe.input';
 import { Recipe } from '../../domain/models/recipe.model';
 import { RecipesRepository } from '../../infrastructure/recipes.repository';
 

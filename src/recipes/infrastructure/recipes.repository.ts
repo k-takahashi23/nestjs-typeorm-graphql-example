@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { NewRecipeInput } from '../api/dto/new-recipe.input';
-import { RecipesArgs } from '../api/dto/recipes.args';
+import { NewRecipeInput } from '../api/inputs/new-recipe.input';
+import { RecipesArgs } from '../api/args/recipes.args';
 import { Recipe } from '../domain/models/recipe.model';
 import { RecipesRepositoryInterface } from '../domain/models/recipes.repository.interface';
 
