@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Repository as TypeOrmRepository } from 'typeorm';
-import { Repository } from 'src/seedwork/domain/repository';
+import { Repository } from '@/seedwork/domain';
 
 @Injectable()
 export abstract class TypeOrmRepositoryBase<TEntity>

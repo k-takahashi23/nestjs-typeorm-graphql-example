@@ -1,3 +1,1 @@
-import { TypeOrmRepositoryBase } from './repository.base';
-
-export { TypeOrmRepositoryBase };
+export * from './repository.base';

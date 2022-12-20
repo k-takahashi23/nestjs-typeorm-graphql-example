@@ -1,6 +1,4 @@
-import { AggregateRoot } from './aggregate-root';
-import { Entity } from './entity';
-import { Repository } from './repository';
-import { ValueObject } from './value-object';
-
-export { AggregateRoot, Entity, Repository, ValueObject };
+export * from './aggregate-root';
+export * from './entity';
+export * from './repository';
+export * from './value-object';
