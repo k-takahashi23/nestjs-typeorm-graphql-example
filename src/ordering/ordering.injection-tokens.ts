@@ -5,4 +5,5 @@ export enum InjectionTokens {
   ItemChangeNameUsecase = 'ItemChangeNameUsecase',
   // repositories
   ItemsRepository = 'ItemsRepository',
+  UsersRepository = 'UsersRepository',
 }
