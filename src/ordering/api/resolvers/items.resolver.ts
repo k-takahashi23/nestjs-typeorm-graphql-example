@@ -12,7 +12,7 @@ import {
 import { InjectionTokens } from '@/ordering/ordering.injection-tokens';
 import { NewItemInput, ChangeItemNameInput } from '../inputs';
 
-@Resolver((_) => Item)
+@Resolver(() => Item)
 export class ItemsResolver {
   public constructor(
     @Inject(InjectionTokens.ItemFindOneByIdUsecase)
@@ -23,14 +23,14 @@ export class ItemsResolver {
     private readonly itemChangeNameInteractor: ItemChangeNameUsecase,
   ) {}
 
-  @Query((_) => Item)
+  @Query(() => Item)
   public async item(@Args('id') id: string): Promise<Item> {
     const request = new ItemFindOneByIdRequest(id);
     const response = await this.itemFindOneByIdInteractor.handle(request);
     return response.item;
   }
 
-  @Mutation((_) => Item)
+  @Mutation(() => Item)
   public async addItem(
     @Args('newItemInput') input: NewItemInput,
   ): Promise<Item> {
@@ -39,7 +39,7 @@ export class ItemsResolver {
     return response.item;
   }
 
-  @Mutation((_) => Item)
+  @Mutation(() => Item)
   public async changeItemName(
     @Args('changeItemNameInput') input: ChangeItemNameInput,
   ): Promise<Item> {

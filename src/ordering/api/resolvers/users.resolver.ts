@@ -12,7 +12,7 @@ import {
 import { InjectionTokens } from '@/ordering/ordering.injection-tokens';
 import { NewUserInput, ChangeUserNameInput } from '../inputs';
 
-@Resolver((_) => User)
+@Resolver(() => User)
 export class UsersResolver {
   public constructor(
     @Inject(InjectionTokens.UserFindOneByIdUsecase)
@@ -23,14 +23,14 @@ export class UsersResolver {
     private readonly userChangeNameInteractor: UserChangeNameUsecase,
   ) {}
 
-  @Query((_) => User)
+  @Query(() => User)
   public async user(@Args('id') id: string): Promise<User> {
     const request = new UserFindOneByIdRequest(id);
     const response = await this.userFindOneByIdInteractor.handle(request);
     return response.user;
   }
 
-  @Mutation((_) => User)
+  @Mutation(() => User)
   public async addUser(
     @Args('newUserInput') input: NewUserInput,
   ): Promise<User> {
@@ -39,7 +39,7 @@ export class UsersResolver {
     return response.user;
   }
 
-  @Mutation((_) => User)
+  @Mutation(() => User)
   public async changeUserName(
     @Args('changeUserNameInput') input: ChangeUserNameInput,
   ): Promise<User> {

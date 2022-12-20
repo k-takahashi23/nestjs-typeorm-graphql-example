@@ -16,7 +16,7 @@ export class Item implements AggregateRoot {
     return new Item(id, name);
   }
 
-  @Field((_type) => ID)
+  @Field(() => ID)
   @PrimaryColumn()
   public id: string;
 

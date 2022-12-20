@@ -16,7 +16,7 @@ export class User implements AggregateRoot {
     return new User(id, name);
   }
 
-  @Field((_type) => ID)
+  @Field(() => ID)
   @PrimaryColumn()
   public id: string;
 
