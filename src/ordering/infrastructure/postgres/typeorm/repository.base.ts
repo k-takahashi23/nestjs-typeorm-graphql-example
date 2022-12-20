@@ -12,7 +12,7 @@ export abstract class TypeOrmRepositoryBase<TEntity>
     this._repository = repository;
   }
 
-  public async findAll(itemsArgs: any): Promise<TEntity[]> {
+  public async findAll(): Promise<TEntity[]> {
     return this._repository.find();
   }
 
