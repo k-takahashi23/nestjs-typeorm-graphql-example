@@ -5,6 +5,7 @@ import { ItemFindOneByIdUsecase } from 'src/ordering/application/usecases/item/f
 import { ItemFindOneByIdRequest } from 'src/ordering/application/usecases/item/find-one-by-id/item.find-one-by-id.request';
 import { ItemAddUsecase } from 'src/ordering/application/usecases/item/add/item.add.usecase';
 import { ItemAddRequest } from 'src/ordering/application/usecases/item/add/item.add.request';
+import { NewItemInput } from '../inputs/new-item.input';
 
 @Resolver((of) => Item)
 export class ItemsResolver {
@@ -23,8 +24,8 @@ export class ItemsResolver {
   }
 
   @Mutation((_) => Item)
-  async addItem(@Args('name') name: string): Promise<Item> {
-    const request = new ItemAddRequest(name)
+  async addItem(@Args('newItemInput') newItemInput: NewItemInput,): Promise<Item> {
+    const request = new ItemAddRequest(newItemInput.name);
     const response = await this.itemAddInteractor.handle(request);
     return response.item;
   }
