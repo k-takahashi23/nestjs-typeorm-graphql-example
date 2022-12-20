@@ -1,6 +1,6 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
-import { ItemsRepositoryInterface } from 'src/ordering/domain/aggregates/item/items.repository.interface';
-import { InjectionTokens } from 'src/ordering/ordering.injection-tokens';
+import { ItemsRepositoryInterface } from '@/ordering/domain';
+import { InjectionTokens } from '@/ordering/ordering.injection-tokens';
 import { ItemFindOneByIdRequest } from '../../usecases/item/find-one-by-id/item.find-one-by-id.request';
 import { ItemFindOneByIdResponse } from '../../usecases/item/find-one-by-id/item.find-one-by-id.response';
 import { ItemFindOneByIdUsecase } from '../../usecases/item/find-one-by-id/item.find-one-by-id.usecase';

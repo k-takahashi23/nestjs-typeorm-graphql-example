@@ -1,7 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { Item } from 'src/ordering/domain/aggregates/item/item.entity';
-import { ItemsRepositoryInterface } from 'src/ordering/domain/aggregates/item/items.repository.interface';
-import { InjectionTokens } from 'src/ordering/ordering.injection-tokens';
+import { Item, ItemsRepositoryInterface } from '@/ordering/domain';
+import { InjectionTokens } from '@/ordering/ordering.injection-tokens';
 import { ItemAddRequest } from '../../usecases/item/add/item.add.request';
 import { ItemAddResponse } from '../../usecases/item/add/item.add.response';
 import { ItemAddUsecase } from '../../usecases/item/add/item.add.usecase';

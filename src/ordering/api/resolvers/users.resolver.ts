@@ -1,15 +1,9 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { User } from '../../domain/aggregates/user/user.entity';
+import { User } from '@/ordering/domain';
 import { Inject } from '@nestjs/common';
-import { UserFindOneByIdUsecase } from 'src/ordering/application/usecases/user/find-one-by-id/user.find-one-by-id.usecase';
-import { UserFindOneByIdRequest } from 'src/ordering/application/usecases/user/find-one-by-id/user.find-one-by-id.request';
-import { UserAddUsecase } from 'src/ordering/application/usecases/user/add/user.add.usecase';
-import { UserAddRequest } from 'src/ordering/application/usecases/user/add/user.add.request';
-import { NewUserInput } from '../inputs/new-user.input';
-import { ChangeUserNameInput } from '../inputs/change-user-name.input';
-import { InjectionTokens } from 'src/ordering/ordering.injection-tokens';
-import { UserChangeNameUsecase } from 'src/ordering/application/usecases/user/change-name/user.change-name.usecase';
-import { UserChangeNameRequest } from 'src/ordering/application/usecases/user/change-name/user.change-name.request';
+import { UserFindOneByIdUsecase, UserAddUsecase, UserChangeNameUsecase, UserFindOneByIdRequest, UserAddRequest, UserChangeNameRequest } from '@/ordering/application';
+import { InjectionTokens } from '@/ordering/ordering.injection-tokens';
+import { NewUserInput, ChangeUserNameInput } from '../inputs';
 
 @Resolver((_) => User)
 export class UsersResolver {

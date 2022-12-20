@@ -1,5 +1,5 @@
-import { User } from 'src/ordering/domain/aggregates/user/user.entity';
-import { Response } from 'src/seedwork/application/response';
+import { User } from '@/ordering/domain';
+import { Response } from '@/seedwork';
 
 export class UserFindOneByIdResponse implements Response {
   public constructor(user: User) {

@@ -1,15 +1,9 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { Item } from '../../domain/aggregates/item/item.entity';
+import { Item } from '@/ordering/domain';
 import { Inject } from '@nestjs/common';
-import { ItemFindOneByIdUsecase } from 'src/ordering/application/usecases/item/find-one-by-id/item.find-one-by-id.usecase';
-import { ItemFindOneByIdRequest } from 'src/ordering/application/usecases/item/find-one-by-id/item.find-one-by-id.request';
-import { ItemAddUsecase } from 'src/ordering/application/usecases/item/add/item.add.usecase';
-import { ItemAddRequest } from 'src/ordering/application/usecases/item/add/item.add.request';
-import { NewItemInput } from '../inputs/new-item.input';
-import { ChangeItemNameInput } from '../inputs/change-item-name.input';
-import { InjectionTokens } from 'src/ordering/ordering.injection-tokens';
-import { ItemChangeNameUsecase } from 'src/ordering/application/usecases/item/change-name/item.change-name.usecase';
-import { ItemChangeNameRequest } from 'src/ordering/application/usecases/item/change-name/item.change-name.request';
+import { ItemFindOneByIdUsecase, ItemFindOneByIdRequest, ItemAddRequest, ItemAddUsecase, ItemChangeNameRequest, ItemChangeNameUsecase } from '@/ordering/application';
+import { InjectionTokens } from '@/ordering/ordering.injection-tokens';
+import { NewItemInput, ChangeItemNameInput } from '../inputs';
 
 @Resolver((_) => Item)
 export class ItemsResolver {

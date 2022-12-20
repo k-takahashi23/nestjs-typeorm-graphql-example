@@ -1,4 +1,4 @@
-import { Request } from 'src/seedwork/application/request';
+import { Request } from '@/seedwork';
 
 export class UserChangeNameRequest implements Request {
   public constructor(id: string, newName: string) {

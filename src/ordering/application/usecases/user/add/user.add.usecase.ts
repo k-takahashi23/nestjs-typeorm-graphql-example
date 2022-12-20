@@ -1,4 +1,4 @@
-import { Usecase } from 'src/seedwork/application/usecase';
+import { Usecase } from '@/seedwork';
 import { UserAddRequest } from './user.add.request';
 import { UserAddResponse } from './user.add.response';
 

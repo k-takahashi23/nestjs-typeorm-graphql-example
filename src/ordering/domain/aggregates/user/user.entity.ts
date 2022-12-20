@@ -1,6 +1,6 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 import { Column, Entity as TypeOrmEntity, PrimaryColumn } from 'typeorm';
-import { AggregateRoot } from 'src/seedwork/domain/aggregate-root';
+import { AggregateRoot } from '@/seedwork';
 import { v4 as uuidv4 } from 'uuid';
 
 @ObjectType({ description: 'user' })

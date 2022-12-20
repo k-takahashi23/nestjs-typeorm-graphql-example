@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { ItemsRepositoryInterface } from 'src/ordering/domain/aggregates/item/items.repository.interface';
-import { InjectionTokens } from 'src/ordering/ordering.injection-tokens';
+import { ItemsRepositoryInterface } from '@/ordering/domain';
+import { InjectionTokens } from '@/ordering/ordering.injection-tokens';
 import { ItemChangeNameRequest } from '../../usecases/item/change-name/item.change-name.request';
 import { ItemChangeNameResponse } from '../../usecases/item/change-name/item.change-name.response';
 import { ItemChangeNameUsecase } from '../../usecases/item/change-name/item.change-name.usecase';

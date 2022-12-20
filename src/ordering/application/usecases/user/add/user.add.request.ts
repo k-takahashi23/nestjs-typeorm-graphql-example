@@ -1,4 +1,4 @@
-import { Request } from 'src/seedwork/application/request';
+import { Request } from '@/seedwork';
 
 export class UserAddRequest implements Request {
   public constructor(name: string) {

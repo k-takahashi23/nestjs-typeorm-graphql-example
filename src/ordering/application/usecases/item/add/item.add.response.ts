@@ -1,5 +1,5 @@
-import { Item } from 'src/ordering/domain/aggregates/item/item.entity';
-import { Response } from 'src/seedwork/application/response';
+import { Item } from '@/ordering/domain';
+import { Response } from '@/seedwork';
 
 export class ItemAddResponse implements Response {
   public constructor(item: Item) {

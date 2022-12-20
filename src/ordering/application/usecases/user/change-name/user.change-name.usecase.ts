@@ -1,4 +1,4 @@
-import { Usecase } from 'src/seedwork/application/usecase';
+import { Usecase } from '@/seedwork';
 import { UserChangeNameRequest } from './user.change-name.request';
 import { UserChangeNameResponse } from './user.change-name.response';
 
