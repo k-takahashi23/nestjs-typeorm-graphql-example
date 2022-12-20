@@ -2,11 +2,10 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { DirectiveLocation, GraphQLDirective } from 'graphql';
-import { upperDirectiveTransformer } from './common/directives/upper-case.directive';
-import { OrderingModule } from './ordering/ordering.module';
+import { upperDirectiveTransformer } from '@/common';
+import { OrderingModule } from '@/ordering/ordering.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Item } from './ordering/domain/aggregates/item/item.entity';
-import { User } from './ordering/domain/aggregates/user/user.entity';
+import { Item, User } from '@/ordering/domain';
 
 @Module({
   imports: [
