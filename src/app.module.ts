@@ -6,6 +6,7 @@ import { upperDirectiveTransformer } from './common/directives/upper-case.direct
 import { OrderingModule } from './ordering/ordering.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Item } from './ordering/domain/aggregates/item/item.entity';
+import { User } from './ordering/domain/aggregates/user/user.entity';
 
 @Module({
   imports: [
@@ -31,7 +32,7 @@ import { Item } from './ordering/domain/aggregates/item/item.entity';
       username: 'postgres',
       password: 'postgres',
       database: 'postgres',
-      entities: [Item],
+      entities: [Item, User],
       synchronize: true,
     }),
   ],
