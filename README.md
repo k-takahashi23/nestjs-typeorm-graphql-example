@@ -25,7 +25,5 @@ NestJS + GraphQL + TypeORM でのDDD Like なレイヤードアーキテクチ�
 - 別のコンテキストのModule も作ってAggregate する
 - husky 入れる
 - DomainService のパターン作る
-- Entity 周りのModule 追加を効率化する
-- DB のテーブル名周りをUtil 化する
 - args をうまいことやる
 - Date をISO 拡張形式にする
