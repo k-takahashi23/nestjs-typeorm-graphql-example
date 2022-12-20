@@ -12,11 +12,11 @@ NestJS + GraphQL + TypeORM でのDDD Like なレイヤードアーキテクチ�
 
 ### Write Model (Lightweight Read Model)
 
-![クラス図](docs/uml/class.png)
+![クラス図WriteModel](docs/uml/class.png)
 
 ### Read Model
 
-TODO: Query Service を使うパターンを整理
+![クラス図ReadModel](docs/uml/class.read.png)
 
 ## TODO
 

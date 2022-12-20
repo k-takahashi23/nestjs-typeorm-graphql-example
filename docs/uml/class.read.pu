@@ -1,0 +1,49 @@
+@startuml class read
+
+package seedwork {
+  package application as applicationseedwork {
+    interface QueryObject {}
+
+    interface QueryResult {}
+
+    interface "QueryService<TQueryObject extends QueryObject, TQueryResult extends QueryResult>" as QueryService {
+      execute(queryObject: TQueryObject): Promise<TQueryResult>
+    }
+
+    QueryObject <-- QueryService
+    QueryResult <-- QueryService
+  }
+}
+
+package ordering {
+
+  package api {
+    class HogeResolver {}
+  }
+
+  package application {
+
+    interface HogeQueryServiceInterface {}
+
+    class HogeQueryObject {}
+
+    class HogeQueryResult {}
+
+    QueryObject <|.. HogeQueryObject
+    QueryResult <|.. HogeQueryResult
+    QueryService <|-- HogeQueryServiceInterface
+
+    HogeQueryServiceInterface <-- HogeResolver
+    HogeQueryObject <-- HogeQueryServiceInterface
+    HogeQueryResult <-- HogeQueryServiceInterface
+  }
+
+  package infrastructure {
+    class HogeQueryService {}
+    note right: 生SQL のパターンとTypeORM のRepository をそのまま使うパターンなどがある。
+
+    HogeQueryServiceInterface <|.. HogeQueryService
+  }
+}
+
+@enduml
