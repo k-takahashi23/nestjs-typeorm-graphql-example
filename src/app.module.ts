@@ -4,6 +4,8 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { DirectiveLocation, GraphQLDirective } from 'graphql';
 import { upperDirectiveTransformer } from './common/directives/upper-case.directive';
 import { OrderingModule } from './ordering/ordering.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Item } from './ordering/domain/aggregates/item/item.entity';
 
 @Module({
   imports: [
@@ -21,6 +23,17 @@ import { OrderingModule } from './ordering/ordering.module';
           }),
         ],
       },
+    }),
+    // TODO: db module にする
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      username: 'postgres',
+      password: 'postgres',
+      database: 'postgres',
+      entities: [Item],
+      synchronize: true,
     }),
   ],
 })
