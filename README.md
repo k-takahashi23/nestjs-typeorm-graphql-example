@@ -9,3 +9,4 @@ NestJS + GraphQL + TypeORM でのDDD Like なレイヤードアーキテクチ�
 - 仮にOrdering としているが、コンテキストマッピングする
 - 別のコンテキストのModule も作ってAggregate する
 - husky 入れる
+- DomainService のパターン作る
