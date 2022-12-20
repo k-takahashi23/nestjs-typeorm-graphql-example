@@ -6,19 +6,19 @@ import { RecipesRepositoryInterface } from 'src/ordering/domain/aggregates/recip
 
 @Injectable()
 export class RecipesRepository implements RecipesRepositoryInterface {
-  async save(data: NewRecipeInput): Promise<Recipe> {
-    return {} as any;
-  }
-
-  async findOneById(id: string): Promise<Recipe> {
+  public async findOneById(id: string): Promise<Recipe> {
     return new Recipe(id);
   }
 
-  async findAll(recipesArgs: RecipesArgs): Promise<Recipe[]> {
+  public async findAll(recipesArgs: RecipesArgs): Promise<Recipe[]> {
     return [] as Recipe[];
   }
 
-  async remove(id: string): Promise<boolean> {
-    return true;
+  public async save(data: NewRecipeInput): Promise<void> {
+    return;
+  }
+
+  public async remove(id: any): Promise<void> {
+    return;
   }
 }

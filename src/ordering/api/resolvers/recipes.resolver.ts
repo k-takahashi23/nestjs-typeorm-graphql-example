@@ -6,6 +6,8 @@ import { Inject } from '@nestjs/common';
 import { RecipeFindOneByIdUsecase } from 'src/ordering/application/usecases/recipe/find-one-by-id/recipe.find-one-by-id.usecase';
 import { RecipeFindOneByIdRequest } from 'src/ordering/application/usecases/recipe/find-one-by-id/recipe.find-one-by-id.request';
 import { RecipeAddUsecase } from 'src/ordering/application/usecases/recipe/add/recipe.add.usecase';
+import { RecipeAddRequest } from 'src/ordering/application/usecases/recipe/add/recipe.add.request';
+import { v4 as uuidv4 } from "uuid";
 
 @Resolver((of) => Recipe)
 export class RecipesResolver {
@@ -19,7 +21,7 @@ export class RecipesResolver {
     // private readonly recipeDeleteUsecase: RecipeDeleteUsecase,
   ) {}
 
-  @Query((returns) => Recipe)
+  @Query((_) => Recipe)
   async recipe(@Args('id') id: string): Promise<Recipe> {
     const request = new RecipeFindOneByIdRequest(id);
     const response = await this.recipeFindOneByIdInteractor.handle(request);
@@ -31,10 +33,14 @@ export class RecipesResolver {
   //   return await this.recipeFindAllUsecase.handle(recipesArgs);
   // }
 
-  @Mutation((returns) => Recipe)
+  @Mutation((_) => Recipe)
   async addRecipe(): Promise<Recipe> {
     // TMP
-    return await this.recipeAddInteractor.handle({});
+    const uuid = uuidv4()
+    console.log('uuid,', uuid)
+    const request = new RecipeAddRequest(uuid)
+    const response = await this.recipeAddInteractor.handle(request);
+    return response.recipe;
   }
 
   // @Mutation((returns) => Boolean)

@@ -10,18 +10,20 @@ export class ItemsRepository implements ItemsRepositoryInterface {
   private readonly _repository: TypeOrmRepository<Item>;
 
   public async findAll(itemsArgs: any): Promise<Item[]> {
-    return [] as Item[];
+    return this._repository.find();
   }
 
   public async findOneById(id: string): Promise<Item> {
-    return new Item(id, 'aaa');
+    return this._repository.findOneBy({ id })
   }
 
-  public async save(entity: Item): Promise<Item> {
-    return this._repository.save(entity);
+  public async save(entity: Item): Promise<void> {
+    this._repository.save(entity);
+    return;
   }
 
-  public async remove(id: string): Promise<boolean> {
-    return true;
+  public async remove(entity: Item): Promise<void> {
+    this._repository.remove(entity);
+    return;
   }
 }
