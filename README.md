@@ -20,3 +20,7 @@ TODO: ちゃんと書く
 - DB のテーブル名周りをUtil 化する
 - args をうまいことやる
 - Date をISO 拡張形式にする
+
+## クラス図
+
+![クラス図](docs/uml/class.png)
