@@ -10,7 +10,8 @@ $ docker-compose up -d
 $ yarn
 $ yarn dev
 ```
-`http://localhost:3000/graphql`
+
+http://localhost:3000/graphql
 
 ## Architecture
 
