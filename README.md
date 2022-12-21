@@ -4,8 +4,7 @@ NestJS + GraphQL + TypeORM でのDDD Like なレイヤードアーキテクチ�
 
 ## How to run
 
-bash
-```
+```bash
 $ docker-compose up -d
 $ yarn
 $ yarn dev
