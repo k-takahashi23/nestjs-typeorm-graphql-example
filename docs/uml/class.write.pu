@@ -1,4 +1,4 @@
-@startuml class
+@startuml class write
 
 package seedwork {
   package application as seedworkapplication  {

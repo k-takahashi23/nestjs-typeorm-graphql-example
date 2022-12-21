@@ -16,7 +16,7 @@ NestJS + GraphQL + TypeORM でのDDD Like なレイヤードアーキテクチ�
 
 ![フロー図WriteModel](docs/uml/flow.write.png)
 
-![クラス図WriteModel](docs/uml/class.png)
+![クラス図WriteModel](docs/uml/class.write.png)
 
 ### Read Model
 
