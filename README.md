@@ -34,6 +34,17 @@ http://localhost:3000/graphql
 
 ![クラス図ReadModel](docs/uml/class.read.png)
 
+## 実装手順（仮）
+
+実際にこのような構成で実装を進めると仮定して流れを整理。
+
+1. ドメインモデリングを行う = Aggregate を作成する
+2. API I/F （GraphQL）設計を行う = Object, Resolver を作成する
+3. DB （データモデル）設計を行う = DataModel を作成する
+4. Usecase を作成する
+5. Interactor を実装する
+6. DI 設定を追加する
+
 ## TODO
 
 1. AutoMapper をうまいことやる
