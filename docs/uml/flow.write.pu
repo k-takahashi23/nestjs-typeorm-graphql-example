@@ -1,0 +1,12 @@
+@startuml flow write
+
+(*) --->[ArgsType or InputType] "Resolver"
+-->[Request] "Interactor"
+--> "Repository"
+--> "DB"
+-->[DataModel] "Repository"
+-->[Entity] "Interactor"
+-->[Response] "Resolver"
+-->[ObjectType] (*)
+
+@enduml

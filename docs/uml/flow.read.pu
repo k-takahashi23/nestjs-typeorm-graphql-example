@@ -1,0 +1,9 @@
+@startuml flow read
+
+(*) --->[ArgsType or InputType] "Resolver"
+-->[QueryObject] "QueryService"
+--> "DB"
+-->[QueryResult] "Resolver"
+-right->[ObjectType] (*)
+
+@enduml
