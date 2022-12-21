@@ -40,8 +40,8 @@ http://localhost:3000/graphql
 2. args をうまいことやる
 3. Read Model のパターンの実装
 4. DomainService のパターン作る
-5. 仮にOrdering としているが、コンテキストマッピングする
-6. Date をISO 拡張形式にする
+5. Date をISO 拡張形式にする
+6. ordering 以外のモジュールを実装する
 
 ## References
 
