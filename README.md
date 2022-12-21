@@ -28,10 +28,8 @@ NestJS + GraphQL + TypeORM でのDDD Like なレイヤードアーキテクチ�
 
 ## TODO
 
-- QueryService のパターン（集計系？）作る
-- 仮にOrdering としているが、コンテキストマッピングする
-- 別のコンテキストのModule も作ってAggregate する
-- husky 入れる
-- DomainService のパターン作る
-- args をうまいことやる
-- Date をISO 拡張形式にする
+1. args をうまいことやる
+2. Read Model のパターンの実装
+3. DomainService のパターン作る
+4. 仮にOrdering としているが、コンテキストマッピングする
+5. Date をISO 拡張形式にする
