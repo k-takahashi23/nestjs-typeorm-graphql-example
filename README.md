@@ -2,6 +2,16 @@
 
 NestJS + GraphQL + TypeORM でのDDD Like なレイヤードアーキテクチャのサンプル。
 
+## How to run
+
+bash
+```
+$ docker-compose up -d
+$ yarn
+$ yarn dev
+```
+`http://localhost:3000/graphql`
+
 ## Architecture
 
 - ある程度レイヤーごとの詰め替えはする（Simple > Easy）
