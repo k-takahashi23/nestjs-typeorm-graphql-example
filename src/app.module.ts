@@ -7,8 +7,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { DirectiveLocation, GraphQLDirective } from 'graphql';
 
 import { upperDirectiveTransformer } from '@/common';
-import { Item, User } from '@/ordering/domain';
-import { OrderingModule } from '@/ordering/ordering.module';
+import { Item, User } from '@/modules/ordering/domain';
+import { OrderingModule } from '@/modules/ordering/ordering.module';
 
 @Module({
   imports: [
