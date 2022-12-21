@@ -42,3 +42,8 @@ http://localhost:3000/graphql
 4. DomainService のパターン作る
 5. 仮にOrdering としているが、コンテキストマッピングする
 6. Date をISO 拡張形式にする
+
+## References
+
+- https://martinfowler.com/bliki/Seedwork.html
+- https://github.com/dotnet-architecture/eShopOnContainers
