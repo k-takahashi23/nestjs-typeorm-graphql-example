@@ -28,8 +28,9 @@ NestJS + GraphQL + TypeORM でのDDD Like なレイヤードアーキテクチ�
 
 ## TODO
 
-1. args をうまいことやる
-2. Read Model のパターンの実装
-3. DomainService のパターン作る
-4. 仮にOrdering としているが、コンテキストマッピングする
-5. Date をISO 拡張形式にする
+1. AutoMapper をうまいことやる
+2. args をうまいことやる
+3. Read Model のパターンの実装
+4. DomainService のパターン作る
+5. 仮にOrdering としているが、コンテキストマッピングする
+6. Date をISO 拡張形式にする
