@@ -1,7 +1,9 @@
-import { Inject } from '@nestjs/common';
+import { MapInterceptor } from '@automapper/nestjs';
+import { Inject, UseInterceptors } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 
 import { NewUserInput, ChangeUserNameInput } from '../inputs';
+import { User } from '../objects';
 
 import {
   UserFindOneByIdUsecase,
@@ -10,8 +12,8 @@ import {
   UserFindOneByIdRequest,
   UserAddRequest,
   UserChangeNameRequest,
+  UserFindOneByIdResponse,
 } from '@/ordering/application';
-import { User } from '@/ordering/domain';
 import { InjectionTokens } from '@/ordering/ordering.injection-tokens';
 
 @Resolver(() => User)
@@ -26,10 +28,11 @@ export class UsersResolver {
   ) {}
 
   @Query(() => User)
-  public async user(@Args('id') id: string): Promise<User> {
+  @UseInterceptors(MapInterceptor(UserFindOneByIdResponse, User))
+  public async user(@Args('id') id: string): Promise<UserFindOneByIdResponse> {
     const request = new UserFindOneByIdRequest(id);
     const response = await this.userFindOneByIdInteractor.handle(request);
-    return response.user;
+    return response;
   }
 
   @Mutation(() => User)

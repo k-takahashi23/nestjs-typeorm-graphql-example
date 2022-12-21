@@ -1,3 +1,5 @@
+import { classes } from '@automapper/classes';
+import { AutomapperModule } from '@automapper/nestjs';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
@@ -34,6 +36,9 @@ import { OrderingModule } from '@/ordering/ordering.module';
       database: 'postgres',
       entities: [Item, User],
       synchronize: true,
+    }),
+    AutomapperModule.forRoot({
+      strategyInitializer: classes(),
     }),
   ],
 })

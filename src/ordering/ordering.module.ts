@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { DateScalar } from '../common/scalars/date.scalar';
 
+import { UserProfile } from './api';
 import { ItemsResolver } from './api/resolvers/items.resolver';
 import { UsersResolver } from './api/resolvers/users.resolver';
 import { ItemAddInteractor } from './application/interactors/item/item.add.interactor';
@@ -23,6 +24,7 @@ import { InjectionTokens } from './ordering.injection-tokens';
     // api
     ItemsResolver,
     UsersResolver,
+    UserProfile,
     // application
     {
       provide: InjectionTokens.ItemFindOneByIdUsecase,

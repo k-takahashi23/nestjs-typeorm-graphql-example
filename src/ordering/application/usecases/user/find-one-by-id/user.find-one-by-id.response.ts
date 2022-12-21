@@ -1,3 +1,5 @@
+import { AutoMap } from '@automapper/classes';
+
 import { User } from '@/ordering/domain';
 import { Response } from '@/seedwork';
 
@@ -6,5 +8,6 @@ export class UserFindOneByIdResponse implements Response {
     this.user = user;
   }
 
+  @AutoMap()
   public user: User;
 }

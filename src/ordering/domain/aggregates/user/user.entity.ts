@@ -1,10 +1,9 @@
-import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { AutoMap } from '@automapper/classes';
 import { Column, Entity as TypeOrmEntity, PrimaryColumn } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
 
 import { AggregateRoot } from '@/seedwork';
 
-@ObjectType({ description: 'user' })
 @TypeOrmEntity({ name: 'users' })
 export class User implements AggregateRoot {
   public constructor(id: string, name: string) {
@@ -17,12 +16,12 @@ export class User implements AggregateRoot {
     return new User(id, name);
   }
 
-  @Field(() => ID)
   @PrimaryColumn()
+  @AutoMap()
   public id: string;
 
-  @Field()
   @Column()
+  @AutoMap()
   public name: string;
 
   public changeName(newName: string) {
