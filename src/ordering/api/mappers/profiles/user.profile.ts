@@ -4,9 +4,7 @@ import { Injectable } from '@nestjs/common';
 
 import { User as UserObject } from '../../objects';
 
-import {
-  UserFindOneByIdResponse,
-} from '@/ordering/application';
+import { UserFindOneByIdResponse } from '@/ordering/application';
 
 @Injectable()
 export class UserProfile extends AutomapperProfile {
