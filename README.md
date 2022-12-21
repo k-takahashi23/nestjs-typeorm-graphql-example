@@ -1,6 +1,6 @@
 ## What's this?
 
-NestJS + GraphQL + TypeORM でのDDD Like なレイヤードアーキテクチャのサンプル。
+NestJS + GraphQL + TypeORM でのDDD Like なモジュラーモノリスのレイヤードアーキテクチャのサンプル。
 
 ## How to run
 
